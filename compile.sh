@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cc game/main.c -o vimcity -lraylib -lm
+cc src/main.c -o vimcity -I./external/raygui-4.0/src -lraylib -lm
