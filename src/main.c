@@ -9,8 +9,8 @@
 #define MAX_COLUMNS 20
 
 typedef struct state_t {
-    const int screenWidth;
-    const int screenHeight;
+    int screenWidth;
+    int screenHeight;
     int cameraMode;
     
     // TODO: seperate into flag struct
@@ -157,6 +157,9 @@ int main(void)
     while (!state.exitWindow)        // Detect window close button or ESC key
     {
         state.exitWindow = WindowShouldClose();
+        // Update window size each loop
+        state.screenWidth = GetScreenWidth();
+        state.screenHeight = GetScreenHeight();
 
         handleKeyboard(&camera, &state);
         // Update camera computes movement internally depending on the camera mode
